@@ -1,7 +1,7 @@
 {
   "name": "diet_plan",
   "version": "1.0.0",
-  "description": "A personal diet tracker for a university student. Tracks a fixed 7-day meal plan with calorie goals, meal check-offs, and weekly progress — all in the browser with no backend, no framework, and no build step.",
+  "description": "A personal diet tracker for anyone looking to eat better. Tracks a personalised 7-day meal plan with calorie goals, meal check-offs, and weekly progress — all in the browser with no backend, no framework, and no build step.",
   "main": "index.js",
   "type": "module",
   "scripts": {

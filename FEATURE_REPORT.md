@@ -2,7 +2,7 @@
 
 ## Overview
 
-This report documents features researched from five popular diet and nutrition tracking apps — **MyFitnessPal**, **Cronometer**, **Lifesum**, **Lose It!**, and **Nutrilio** — and evaluates their fit for the redesigned 7 Day Diet Tracker. The target user is a university student tracking personal health goals with a focus on Indian/South Asian meals and a fixed weekly meal plan. The app is a no-backend, no-framework, vanilla HTML/CSS/JS project, so implementation complexity is assessed accordingly.
+This report documents features researched from five popular diet and nutrition tracking apps — **MyFitnessPal**, **Cronometer**, **Lifesum**, **Lose It!**, and **Nutrilio** — and evaluates their fit for the redesigned 7 Day Diet Tracker. The target user is anyone tracking personal health goals with a focus on Indian/South Asian meals and a personalised weekly meal plan. The app is a no-backend, no-framework, vanilla HTML/CSS/JS project, so implementation complexity is assessed accordingly.
 
 ---
 
@@ -44,7 +44,7 @@ This report documents features researched from five popular diet and nutrition t
 - **Source apps:** MyFitnessPal, Lifesum, Noom
 - **What it does:** Tracks how many consecutive days the user has completed their full meal plan and displays a running streak count.
 - **Fit:** ✅ Great fit
-- **Reasoning:** Streaks are a proven motivational mechanic for habit formation. For a student trying to stay consistent across a busy university week, seeing a streak grow is a lightweight but effective nudge.
+- **Reasoning:** Streaks are a proven motivational mechanic for habit formation. For anyone trying to stay consistent across a busy week, seeing a streak grow is a lightweight but effective nudge.
 - **Implementation complexity:** Low — compare today's date against a stored last-completed date in localStorage.
 
 ---
@@ -64,7 +64,7 @@ This report documents features researched from five popular diet and nutrition t
 - **Source apps:** MyFitnessPal, Cronometer, Nutrilio
 - **What it does:** Allows the user to attach a short free-text note to any meal or to the day as a whole (e.g. "felt full", "skipped snack", "ate out instead").
 - **Fit:** ✅ Great fit
-- **Reasoning:** The current app already has a notes concept for university lunch days. Extending this to a user-editable note per meal supports the inline-editing goal of the redesign and adds a personal journaling layer with zero backend needed.
+- **Reasoning:** The current app already has a notes concept for specific meal days. Extending this to a user-editable note per meal supports the inline-editing goal of the redesign and adds a personal journaling layer with zero backend needed.
 - **Implementation complexity:** Low — a textarea per meal, saved to localStorage.
 
 ---
@@ -84,7 +84,7 @@ This report documents features researched from five popular diet and nutrition t
 - **Source apps:** MyFitnessPal, Cronometer, Lifesum, Lose It!
 - **What it does:** Lets the user log their body weight each day and displays a line chart of weight over time.
 - **Fit:** ✅ Great fit
-- **Reasoning:** A student tracking diet for health/fitness goals will naturally want to see if their eating habits are moving the needle on weight. A simple log with a canvas-based or SVG line chart fits the no-framework constraint and lives naturally on the progress page.
+- **Reasoning:** Anyone tracking diet for health/fitness goals will naturally want to see if their eating habits are moving the needle on weight. A simple log with a canvas-based or SVG line chart fits the no-framework constraint and lives naturally on the progress page.
 - **Implementation complexity:** Medium — data storage is easy; a minimal SVG/canvas chart is moderate effort but doable without libraries.
 
 ---
@@ -114,7 +114,7 @@ This report documents features researched from five popular diet and nutrition t
 - **Source apps:** MyFitnessPal, Cronometer, Lose It!
 - **What it does:** Calculates and displays the average daily calorie intake across all days in the current week.
 - **Fit:** ✅ Great fit
-- **Reasoning:** The progress page is the natural home for this. A single average figure gives the student a quick weekly health check without needing to interpret a full chart, and it's trivially computed from data already in localStorage.
+- **Reasoning:** The progress page is the natural home for this. A single average figure gives the user a quick weekly health check without needing to interpret a full chart, and it's trivially computed from data already in localStorage.
 - **Implementation complexity:** Low — sum checked calories across all 7 days, divide by days with data.
 
 ---
@@ -124,7 +124,7 @@ This report documents features researched from five popular diet and nutrition t
 - **Source apps:** MyFitnessPal, Cronometer, Lifesum
 - **What it does:** Switches the app between a light and dark colour scheme, with the preference saved across sessions.
 - **Fit:** ✅ Great fit
-- **Reasoning:** Students often use their phones late at night for meal planning or logging. Dark mode reduces eye strain and is a widely expected feature in any modern app. The existing CSS custom properties architecture makes this trivial to implement.
+- **Reasoning:** Users often use their phones late at night for meal planning or logging. Dark mode reduces eye strain and is a widely expected feature in any modern app. The existing CSS custom properties architecture makes this trivial to implement.
 - **Implementation complexity:** Low — toggle a `data-theme` attribute on `<body>`, override CSS variables, save to localStorage.
 
 ---
@@ -134,7 +134,7 @@ This report documents features researched from five popular diet and nutrition t
 - **Source apps:** MyFitnessPal, Cronometer
 - **What it does:** Generates a plain-text or printable summary of the week's meals and calorie totals, either copied to clipboard or sent to the browser's print dialog.
 - **Fit:** ✅ Great fit
-- **Reasoning:** A student might want to share their weekly plan with a nutritionist, a gym trainer, or just keep a personal record. `window.print()` with a print stylesheet, or `navigator.clipboard.writeText()`, requires no backend and is a one-function implementation.
+- **Reasoning:** A user might want to share their weekly plan with a nutritionist, a gym trainer, or just keep a personal record. `window.print()` with a print stylesheet, or `navigator.clipboard.writeText()`, requires no backend and is a one-function implementation.
 - **Implementation complexity:** Low — `window.print()` with a `@media print` stylesheet, or a text serialiser + clipboard API.
 
 ---

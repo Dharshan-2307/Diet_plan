@@ -1,6 +1,6 @@
 # 7 Day Diet Tracker
 
-A personal diet tracker for a university student. Tracks a fixed 7-day meal plan with calorie goals, meal check-offs, and weekly progress — all in the browser with no backend, no framework, and no build step.
+A personal diet tracker for anyone looking to eat better. Tracks a personalised 7-day meal plan with calorie goals, meal check-offs, and weekly progress — all in the browser with no backend, no framework, and no build step.
 
 ## Pages
 
@@ -18,14 +18,12 @@ A personal diet tracker for a university student. Tracks a fixed 7-day meal plan
 - Check off meals (Breakfast, Lunch, Snack, Dinner)
 - Calorie progress bar with percentage
 - localStorage persistence across page refreshes
-- University lunch note on weekday views
 - Mobile-friendly layout
 
 ### Planned
 - Calories remaining display (goal − consumed)
 - Exceeded goal warning (red bar + message)
 - Dark mode toggle
-- University lunch quick-log button (one-tap to log ~615 kcal campus lunch on weekdays)
 - Daily motivational tip / quote
 - Streak counter (consecutive days completed)
 - Water intake tracker (8-glass daily counter)
