@@ -87,17 +87,17 @@ Implement a multi-page vanilla HTML/CSS/JS nutrition tracker with localStorage p
   - [x] 5.5 On valid submit: call `utils.computeGoal(profile)`, call `utils.defaultMeals(profile)` to build the initial Plan, save Profile + Daily_Goal + Plan to Store, redirect to `tracker.html`
     - _Requirements: 1.3, 1.4, 4.1_
 
-- [-] 6. Implement shared Nav component and dark mode bootstrap
-  - [ ] 6.1 Add the Nav HTML partial (with `.nav`, `.nav__link`, `data-page` attributes, and dark mode toggle button) to `tracker.html`, `progress.html`, and `settings.html`; omit from `index.html`
+- [x] 6. Implement shared Nav component and dark mode bootstrap
+  - [x] 6.1 Add the Nav HTML partial (with `.nav`, `.nav__link`, `data-page` attributes, and dark mode toggle button) to `tracker.html`, `progress.html`, and `settings.html`; omit from `index.html`
     - _Requirements: 8.1, 8.2, 8.6, 11.1_
-  - [ ] 6.2 Implement Nav active-state logic in each page's JS: on load, add `.nav--active` to the link matching the current page filename
+  - [x] 6.2 Implement Nav active-state logic in each page's JS: on load, add `.nav--active` to the link matching the current page filename
     - _Requirements: 8.3_
   - [ ]* 6.3 Write property test for nav active state
     - **Property 10: Nav Active State Matches Current Page**
     - **Validates: Requirements 8.3**
-  - [ ] 6.4 Add responsive Nav CSS: `position: fixed; bottom: 0` with icon+label layout on `< 768px`; `position: sticky; top: 0` horizontal bar on `≥ 768px`; add `padding-bottom` on `<main>` to prevent content overlap on mobile
+  - [x] 6.4 Add responsive Nav CSS: `position: fixed; bottom: 0` with icon+label layout on `< 768px`; `position: sticky; top: 0` horizontal bar on `≥ 768px`; add `padding-bottom` on `<main>` to prevent content overlap on mobile
     - _Requirements: 8.4, 8.5_
-  - [ ] 6.5 Implement dark mode bootstrap in a shared inline `<script>` block (or top of each page's JS): read `store.getTheme()` and apply `data-theme="dark"` to `<body>` before first paint; wire the toggle button to flip theme and persist via `store.setTheme()`
+  - [x] 6.5 Implement dark mode bootstrap in a shared inline `<script>` block (or top of each page's JS): read `store.getTheme()` and apply `data-theme="dark"` to `<body>` before first paint; wire the toggle button to flip theme and persist via `store.setTheme()`
     - _Requirements: 11.2, 11.3, 11.4, 11.5_
 
 - [-] 7. Implement `tracker.html` + `js/tracker.js` — core daily tracking
@@ -115,17 +115,17 @@ Implement a multi-page vanilla HTML/CSS/JS nutrition tracker with localStorage p
   - [ ]* 7.6 Write property test for calories remaining invariant
     - **Property 12: Calories Remaining Invariant**
     - **Validates: Requirements 9.1, 9.2, 9.3**
-  - [ ] 7.7 Implement inline add/edit meal form: name input, meal-type select with custom type option, calorie input; validate calorie on blur (reject non-numeric, ≤0, >9999); save to Store on submit; cancel discards changes
+  - [x] 7.7 Implement inline add/edit meal form: name input, meal-type select with custom type option, calorie input; validate calorie on blur (reject non-numeric, ≤0, >9999); save to Store on submit; cancel discards changes
     - _Requirements: 2.2, 2.3, 2.5, 2.7_
   - [ ]* 7.8 Write property test for calorie input validation
     - **Property 5: Calorie Input Validation**
     - **Validates: Requirements 2.7**
-  - [ ] 7.9 Implement meal delete: remove meal from day in Store, re-render day
+  - [x] 7.9 Implement meal delete: remove meal from day in Store, re-render day
     - _Requirements: 2.4_
   - [ ]* 7.10 Write property test for meal list mutation correctness
     - **Property 3: Meal List Mutation Correctness**
     - **Validates: Requirements 2.1, 2.3, 2.4**
-  - [ ] 7.11 Implement exceeded-goal warning: when consumed > Daily_Goal apply `.progress-bar__fill--exceeded` and show warning message; remove both when consumed ≤ goal
+  - [x] 7.11 Implement exceeded-goal warning: when consumed > Daily_Goal apply `.progress-bar__fill--exceeded` and show warning message; remove both when consumed ≤ goal
     - _Requirements: 10.1, 10.2, 10.3_
   - [ ]* 7.12 Write property test for exceeded goal warning state
     - **Property 13: Exceeded Goal Warning State**
@@ -133,47 +133,47 @@ Implement a multi-page vanilla HTML/CSS/JS nutrition tracker with localStorage p
   - [ ]* 7.13 Write property test for exceeded goal progress bar color
     - **Property 8: Exceeded Goal Triggers Color Change**
     - **Validates: Requirements 7.2**
-  - [ ] 7.14 Implement day completion indicator: when all meals in a day are checked show a visual completion badge; show a toast notification on the transition to fully complete
+  - [x] 7.14 Implement day completion indicator: when all meals in a day are checked show a visual completion badge; show a toast notification on the transition to fully complete
     - _Requirements: 3.4, 7.4_
-  - [ ] 7.15 Display suggested Daily_Goal (from Profile) alongside user-overridden goal; show Calories_Remaining in red when negative
+  - [x] 7.15 Display suggested Daily_Goal (from Profile) alongside user-overridden goal; show Calories_Remaining in red when negative
     - _Requirements: 4.2, 4.6, 9.3, 9.4_
 
-- [~] 8. Implement streak counter in `js/tracker.js`
-  - [ ] 8.1 On each day-completion event (all meals checked), compute whether the completion date is exactly one day after `lastCompletedDate` (increment) or more (reset to 1); write updated streak to Store; update the streak badge in the header
+- [x] 8. Implement streak counter in `js/tracker.js`
+  - [x] 8.1 On each day-completion event (all meals checked), compute whether the completion date is exactly one day after `lastCompletedDate` (increment) or more (reset to 1); write updated streak to Store; update the streak badge in the header
     - _Requirements: 13.1, 13.2, 13.3_
-  - [ ] 8.2 On meal uncheck, recalculate streak from current Store state and update the display
+  - [x] 8.2 On meal uncheck, recalculate streak from current Store state and update the display
     - _Requirements: 13.4_
   - [ ]* 8.3 Write property test for streak increment and reset logic
     - **Property 15: Streak Increments on Consecutive Completion, Resets on Gap**
     - **Validates: Requirements 13.2, 13.3**
 
-- [~] 9. Implement water intake tracker in `js/tracker.js`
+- [x] 9. Implement water intake tracker in `js/tracker.js`
   - Add 8 `.water-drop` icons to the active day's section; on tap fill all drops up to and including the tapped index and write to `store.setWater(todayKey(), count)`; on day/date change reset display to stored count for that date (0 if new date)
   - _Requirements: 14.1, 14.2, 14.3, 14.4, 14.5_
 
-- [~] 10. Implement meal notes in `js/tracker.js`
+- [x] 10. Implement meal notes in `js/tracker.js`
   - Add a collapsible `.meal-note` textarea below each meal item; auto-save note to `meal.note` in Store on every `input` event; populate textarea from stored note on render; default to `''` when no note exists
   - _Requirements: 15.1, 15.2, 15.3, 15.4, 15.5_
 
-- [~] 11. Implement motivational tip display in `js/tracker.js`
+- [x] 11. Implement motivational tip display in `js/tracker.js`
   - Render `utils.getTip(dayIndex)` in the `.tip-card` element on page load and on each day tab switch; tip is read-only
   - _Requirements: 12.1, 12.2, 12.3, 12.4_
 
-- [~] 12. Implement "Download Plan PDF" in `js/tracker.js`
-  - [ ] 12.1 Add "Download Plan PDF" button to `tracker.html`; on click call `utils.planToText(plan, goalOverride)` and attempt `navigator.clipboard.writeText()` (silently skip if unavailable), then call `window.print()`
+- [x] 12. Implement "Download Plan PDF" in `js/tracker.js`
+  - [x] 12.1 Add "Download Plan PDF" button to `tracker.html`; on click call `utils.planToText(plan, goalOverride)` and attempt `navigator.clipboard.writeText()` (silently skip if unavailable), then call `window.print()`
     - _Requirements: 19.1, 19.2, 19.6, 19.7_
-  - [ ] 12.2 Add `body.page-tracker @media print` block in `style.css`: hide Nav, day tabs, checkboxes, edit/delete controls, water tracker, streak badge, and all interactive elements; render all 7 days stacked with day name, Daily_Goal, and each meal's name, type, and calorie count
+  - [x] 12.2 Add `body.page-tracker @media print` block in `style.css`: hide Nav, day tabs, checkboxes, edit/delete controls, water tracker, streak badge, and all interactive elements; render all 7 days stacked with day name, Daily_Goal, and each meal's name, type, and calorie count
     - _Requirements: 19.3, 19.4, 19.5_
 
 - [ ] 13. Checkpoint — Ensure tracker page tests pass and all tracker features work
   - Ensure all tests pass, ask the user if questions arise.
 
-- [~] 14. Implement `progress.html` + `js/progress.js` — weekly progress
-  - [ ] 14.1 Create `progress.html` with weekly summary card (total consumed, total planned, days completed count) and per-day progress bars with percentage labels; read all data from Store on page load
+- [x] 14. Implement `progress.html` + `js/progress.js` — weekly progress
+  - [x] 14.1 Create `progress.html` with weekly summary card (total consumed, total planned, days completed count) and per-day progress bars with percentage labels; read all data from Store on page load
     - _Requirements: 5.1, 7.1, 7.3, 7.5_
-  - [ ] 14.2 Apply `.progress-bar__fill--exceeded` on per-day bars where consumed > Daily_Goal
+  - [x] 14.2 Apply `.progress-bar__fill--exceeded` on per-day bars where consumed > Daily_Goal
     - _Requirements: 7.2_
-  - [ ] 14.3 Implement weekly calorie average: sum consumed calories across days with ≥1 checked meal, divide by that count; display `0` or `—` when no days qualify
+  - [x] 14.3 Implement weekly calorie average: sum consumed calories across days with ≥1 checked meal, divide by that count; display `0` or `—` when no days qualify
     - _Requirements: 16.1, 16.2, 16.3, 16.4_
   - [ ]* 14.4 Write property test for weekly summary aggregation correctness
     - **Property 9: Weekly Summary Aggregation Correctness**
@@ -181,28 +181,28 @@ Implement a multi-page vanilla HTML/CSS/JS nutrition tracker with localStorage p
   - [ ]* 14.5 Write property test for weekly calorie average excluding empty days
     - **Property 18: Weekly Calorie Average Excludes Empty Days**
     - **Validates: Requirements 16.1, 16.2, 16.3**
-  - [ ] 14.6 Implement body weight log UI: number input + "Log Weight" button; validate positive numeric value; call `store.appendWeight({ date: todayKey(), weight })` on submit; show `.form-error` on invalid input
+  - [x] 14.6 Implement body weight log UI: number input + "Log Weight" button; validate positive numeric value; call `store.appendWeight({ date: todayKey(), weight })` on submit; show `.form-error` on invalid input
     - _Requirements: 18.1, 18.2, 18.3, 18.6_
-  - [ ] 14.7 Render weight log as inline SVG line chart using `utils.formatWeightChartSVG(entries, width, height)`; no external charting library
+  - [x] 14.7 Render weight log as inline SVG line chart using `utils.formatWeightChartSVG(entries, width, height)`; no external charting library
     - _Requirements: 18.4_
-  - [ ] 14.8 Implement "Print / Export" button: call `utils.planToText` equivalent for weekly summary, attempt `navigator.clipboard.writeText()` (silently skip if unavailable), then call `window.print()`
+  - [x] 14.8 Implement "Print / Export" button: call `utils.planToText` equivalent for weekly summary, attempt `navigator.clipboard.writeText()` (silently skip if unavailable), then call `window.print()`
     - _Requirements: 17.1, 17.2, 17.4, 17.5_
-  - [ ] 14.9 Add `body.page-progress @media print` block in `style.css`: hide Nav, render text-only weekly summary (consumed, planned, per-day breakdown)
+  - [x] 14.9 Add `body.page-progress @media print` block in `style.css`: hide Nav, render text-only weekly summary (consumed, planned, per-day breakdown)
     - _Requirements: 17.3_
 
-- [~] 15. Implement `settings.html` + `js/settings.js` — profile & settings
-  - [ ] 15.1 Create `settings.html` with editable Profile fields (goal, activity level, age, weight, height, dietary preference), Daily_Goal override input showing the suggested value, dark mode toggle, "Save Changes" button, and "Re-run Onboarding" button
+- [x] 15. Implement `settings.html` + `js/settings.js` — profile & settings
+  - [x] 15.1 Create `settings.html` with editable Profile fields (goal, activity level, age, weight, height, dietary preference), Daily_Goal override input showing the suggested value, dark mode toggle, "Save Changes" button, and "Re-run Onboarding" button
     - _Requirements: 5.1_
-  - [ ] 15.2 On load, populate all fields from `store.getProfile()` and `store.getGoalOverride()`; show `utils.computeGoal(profile)` as the suggested value
+  - [x] 15.2 On load, populate all fields from `store.getProfile()` and `store.getGoalOverride()`; show `utils.computeGoal(profile)` as the suggested value
     - _Requirements: 4.2_
-  - [ ] 15.3 On "Save Changes": validate inputs, write updated Profile + goal override to Store, recompute suggestion via `utils.computeGoal`
+  - [x] 15.3 On "Save Changes": validate inputs, write updated Profile + goal override to Store, recompute suggestion via `utils.computeGoal`
     - _Requirements: 6.1_
-  - [ ] 15.4 On "Re-run Onboarding": call `store.clearAll()` and redirect to `index.html`
+  - [x] 15.4 On "Re-run Onboarding": call `store.clearAll()` and redirect to `index.html`
     - _Requirements: 1.1_
-  - [ ] 15.5 If no Profile exists on load, render a prompt with a link to `index.html` instead of the settings form
+  - [x] 15.5 If no Profile exists on load, render a prompt with a link to `index.html` instead of the settings form
     - _Requirements: 5.1_
 
-- [~] 16. Add responsive desktop layout for `tracker.html`
+- [-] 16. Add responsive desktop layout for `tracker.html`
   - Add `@media (min-width: 768px)` CSS for `.day-grid` as a 7-column grid (`repeat(7, 1fr)`); show all days simultaneously on desktop; hide day tabs on desktop (all columns visible); ensure top nav is shown and bottom nav is hidden
   - _Requirements: 5.6, 8.4, 8.5_
 

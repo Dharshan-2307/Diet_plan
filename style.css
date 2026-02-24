@@ -144,6 +144,28 @@ body {
 }
 
 /* ============================================================
+   Warning Message (exceeded goal)
+   ============================================================ */
+.warning-msg {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
+  padding: var(--space-xs) var(--space-sm);
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: var(--radius-md);
+  color: var(--color-danger);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+}
+
+[data-theme="dark"] .warning-msg {
+  background: #450a0a33;
+  border-color: #991b1b;
+}
+
+/* ============================================================
    Form Groups
    ============================================================ */
 .form-group {
