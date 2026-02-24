@@ -615,23 +615,17 @@ main { padding-bottom: calc(var(--nav-height-mobile) + var(--space-md)); }
 
   main { padding-bottom: var(--space-xl); }
 
-  .day-tabs { display: none; } /* hide day tabs on desktop — all columns visible */
+  .day-tabs { display: flex; } /* keep day tabs visible on desktop too */
 
-  .day-column--hidden { display: block !important; } /* override mobile hide */
-
-  .day-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: var(--space-md);
-  }
+  .day-column--hidden { display: none; } /* keep single-day view on desktop */
 
   .main-content {
-    max-width: 1200px;
+    max-width: 640px;
     padding: var(--space-lg) var(--space-xl);
   }
 
   .container {
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
     padding: var(--space-lg) var(--space-xl);
   }
