@@ -27,6 +27,7 @@
       height: 100%;
       object-fit: cover;
       z-index: 0;
+      pointer-events: none;
     }
 
     .hero__overlay {
@@ -261,9 +262,9 @@
   </script>
 
   <!-- ═══════════ HERO SECTION (hero59 — video bg) ═══════════ -->
-  <section class="hero" id="hero">
+  <section class="hero" id="hero" oncontextmenu="return false;">
     <video class="hero__video" loop playsinline autoplay muted src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/video-5.mp4"></video>
-    <div class="hero__overlay"></div>
+    <div class="hero__overlay" oncontextmenu="return false;"></div>
     <div class="hero__content">
       <span class="hero__badge">🥗 Your personal nutrition companion</span>
       <h1 class="hero__title">Track Your Nutrition.<br>Transform Your Life.</h1>
