@@ -3,12 +3,157 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nutrify — Setup</title>
+  <title>Nutrify — Your 7-Day Diet Tracker</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <style>
+    /* ── Hero Section (hero59 style) ─────────────────────── */
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero__video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.8) 100%);
+      z-index: 1;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 720px;
+      padding: var(--space-xl);
+      color: #fff;
+    }
+
+    .hero__badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(8px);
+      font-size: var(--font-size-sm);
+      font-weight: 500;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: var(--space-lg);
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .hero__title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin: 0 0 var(--space-md);
+      letter-spacing: -0.02em;
+    }
+
+    .hero__desc {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+      margin: 0 0 var(--space-xl);
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero__actions {
+      display: flex;
+      gap: var(--space-md);
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: var(--space-xl);
+    }
+
+    .hero__btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 32px;
+      border-radius: var(--radius-md);
+      font-size: var(--font-size-base);
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      min-height: 48px;
+    }
+
+    .hero__btn:hover { transform: translateY(-2px); }
+
+    .hero__btn--primary {
+      background: var(--color-primary);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(34,197,94,0.4);
+    }
+
+    .hero__btn--ghost {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.25);
+      backdrop-filter: blur(4px);
+    }
+
+    .hero__stats {
+      display: flex;
+      gap: var(--space-xl);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero__stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .hero__stat-num {
+      font-size: var(--font-size-xl);
+      font-weight: 700;
+    }
+
+    .hero__stat-label {
+      font-size: var(--font-size-sm);
+      color: rgba(255,255,255,0.6);
+    }
+
+    .hero__scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+      color: rgba(255,255,255,0.5);
+      font-size: 1.5rem;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ── Onboarding Form ─────────────────────────────────── */
     .onboarding-wrap {
       min-height: 100vh;
       display: flex;
@@ -113,7 +258,7 @@
     .height-inputs .form-group { flex: 1; }
     .submit-wrap { margin-top: var(--space-xl); }
     .submit-wrap .btn { width: 100%; justify-content: center; font-size: var(--font-size-lg); padding: var(--space-md); }
-  </style>
+</style>
 </head>
 <body>
   <!-- Dark mode bootstrap -->
@@ -126,7 +271,33 @@
     })();
   </script>
 
-  <div class="onboarding-wrap">
+  <!-- ═══════════ HERO SECTION ═══════════ -->
+  <section class="hero" id="hero">
+    <video class="hero__video" autoplay muted loop playsinline poster="">
+      <source src="https://videos.pexels.com/video-files/3195394/3195394-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+    </video>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <span class="hero__badge">🥗 Your personal nutrition companion</span>
+      <h1 class="hero__title">Track Your Nutrition.<br>Transform Your Life.</h1>
+      <p class="hero__desc">Nutrify builds you a personalised 7-day meal plan, tracks your calories, water intake, and streaks — all in your browser, no sign-up needed.</p>
+      <div class="hero__actions">
+        <a href="#onboarding" class="hero__btn hero__btn--primary">Get Started Free</a>
+        <a href="tracker.html" class="hero__btn hero__btn--ghost">Open Tracker →</a>
+      </div>
+      <div class="hero__stats">
+        <div class="hero__stat"><span class="hero__stat-num">7</span><span class="hero__stat-label">Day Plans</span></div>
+        <div class="hero__stat"><span class="hero__stat-num">300+</span><span class="hero__stat-label">Food Database</span></div>
+        <div class="hero__stat"><span class="hero__stat-num">100%</span><span class="hero__stat-label">Free & Private</span></div>
+      </div>
+    </div>
+    <div class="hero__scroll-hint" onclick="document.getElementById('onboarding').scrollIntoView({behavior:'smooth'})">
+      <span>↓</span>
+    </div>
+  </section>
+
+  <!-- ═══════════ ONBOARDING FORM ═══════════ -->
+  <div class="onboarding-wrap" id="onboarding">
     <div class="onboarding-card">
       <div class="onboarding-logo">
         <h1>🥗 Nutrify</h1>
