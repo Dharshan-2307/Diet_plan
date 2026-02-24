@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nutrify — Settings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-settings">
+  <script>
+    (function() {
+      try {
+        const t = JSON.parse(localStorage.getItem('ddt_theme'));
+        if (t === 'dark') document.body.setAttribute('data-theme', 'dark');
+      } catch(e) {}
+    })();
+  </script>
+
+  <!-- Top Nav (desktop) -->
+  <nav class="nav nav--top no-print" aria-label="Main navigation">
+    <div class="nav__brand">🥗 Nutrify</div>
+    <div class="nav__links">
+      <a href="tracker.html" class="nav__link" data-page="tracker">
+        <span class="nav__icon" aria-hidden="true">📋</span>
+        <span class="nav__label">Tracker</span>
+      </a>
+      <a href="progress.html" class="nav__link" data-page="progress">
+        <span class="nav__icon" aria-hidden="true">📊</span>
+        <span class="nav__label">Progress</span>
+      </a>
+      <a href="settings.html" class="nav__link" data-page="settings">
+        <span class="nav__icon" aria-hidden="true">⚙️</span>
+        <span class="nav__label">Settings</span>
+      </a>
+    </div>
+    <button class="btn btn--ghost nav__theme-toggle no-print" id="theme-toggle-top" aria-label="Toggle dark mode">🌙</button>
+  </nav>
+
+  <main class="main-content">
+    <div class="container">
+      <div id="settings-root">
+        <!-- Rendered by settings.js -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Bottom Nav (mobile) -->
+  <nav class="nav nav--bottom no-print" aria-label="Main navigation">
+    <a href="tracker.html" class="nav__link" data-page="tracker">
+      <span class="nav__icon" aria-hidden="true">📋</span>
+      <span class="nav__label">Tracker</span>
+    </a>
+    <a href="progress.html" class="nav__link" data-page="progress">
+      <span class="nav__icon" aria-hidden="true">📊</span>
+      <span class="nav__label">Progress</span>
+    </a>
+    <a href="settings.html" class="nav__link" data-page="settings">
+      <span class="nav__icon" aria-hidden="true">⚙️</span>
+      <span class="nav__label">Settings</span>
+    </a>
+    <button class="btn btn--ghost nav__theme-toggle" id="theme-toggle-bottom" aria-label="Toggle dark mode">🌙</button>
+  </nav>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/store.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/settings.js"></script>
+</body>
+</html>
