@@ -1,8 +1,8 @@
-# Design Document: 7-Day Diet Tracker
+# Design Document: Nutrify
 
 ## Overview
 
-The 7-Day Diet Tracker is a frontend-only, multi-page web application built with vanilla HTML, CSS, and JavaScript. It allows users to set up a personalized diet plan through an onboarding flow, track daily meal completion, visualize weekly progress, and adjust settings — all persisted in `localStorage` with no backend or build tooling required.
+Nutrify is a frontend-only, multi-page web application built with vanilla HTML, CSS, and JavaScript. It allows users to set up a personalized diet plan through an onboarding flow, track daily meal completion, visualize weekly progress, and adjust settings — all persisted in `localStorage` with no backend or build tooling required.
 
 The app is organized around four dedicated HTML pages connected by standard anchor navigation. All shared logic lives in two JS modules (`store.js`, `utils.js`); each page has its own script. One `style.css` covers all pages using CSS custom properties and responsive breakpoints.
 

@@ -1,8 +1,8 @@
-# Feature Research Report — 7 Day Diet Tracker
+# Feature Research Report — Nutrify
 
 ## Overview
 
-This report documents features researched from five popular diet and nutrition tracking apps — **MyFitnessPal**, **Cronometer**, **Lifesum**, **Lose It!**, and **Nutrilio** — and evaluates their fit for the redesigned 7 Day Diet Tracker. The target user is anyone tracking personal health goals with a focus on Indian/South Asian meals and a personalised weekly meal plan. The app is a no-backend, no-framework, vanilla HTML/CSS/JS project, so implementation complexity is assessed accordingly.
+This report documents features researched from five popular diet and nutrition tracking apps — **MyFitnessPal**, **Cronometer**, **Lifesum**, **Lose It!**, and **Nutrilio** — and evaluates their fit for the redesigned Nutrify. The target user is anyone tracking personal health goals with a focus on Indian/South Asian meals and a personalised weekly meal plan. The app is a no-backend, no-framework, vanilla HTML/CSS/JS project, so implementation complexity is assessed accordingly.
 
 ---
 
@@ -195,4 +195,4 @@ These are the ✅ Great fit features, ordered by implementation priority (easies
 |---|---|
 | **Intermittent fasting timer** | Conflicts with the structured 4-meal-per-day plan. The app is not designed around fasting windows, and adding a timer would create UX confusion without serving the user's actual goals. |
 | **Full macro tracking** | Requires populating protein/carbs/fat data for every meal in the plan — a significant manual effort. The app's value is in simplicity; macro tracking is better suited to a database-backed app like Cronometer. Can be revisited if the user decides to invest in the data entry. |
-| **General habit tracker** | Too broad in scope for a focused diet tracker. The water intake tracker (a specific, relevant habit) covers the most useful slice of this feature. A full custom habit system would expand the app's surface area without clear benefit for this user. |
+| **General habit tracker** | Too broad in scope for a focused nutrition tracker. The water intake tracker (a specific, relevant habit) covers the most useful slice of this feature. A full custom habit system would expand the app's surface area without clear benefit for this user. |

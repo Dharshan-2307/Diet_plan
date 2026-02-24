@@ -1,5 +1,5 @@
 /**
- * js/onboarding.js — Onboarding flow for 7 Day Diet Tracker
+ * js/onboarding.js — Onboarding flow for Nutrify
  */
 
 // ── State ─────────────────────────────────────────────────

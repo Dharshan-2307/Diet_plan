@@ -1,8 +1,8 @@
-# Implementation Plan: 7-Day Diet Tracker
+# Implementation Plan: Nutrify
 
 ## Overview
 
-Implement a multi-page vanilla HTML/CSS/JS diet tracker with localStorage persistence. Tasks are ordered foundation-first: data layer → shared styles/utilities → page-by-page implementation → layered features → tests.
+Implement a multi-page vanilla HTML/CSS/JS nutrition tracker with localStorage persistence. Tasks are ordered foundation-first: data layer → shared styles/utilities → page-by-page implementation → layered features → tests.
 
 ## Tasks
 
@@ -44,7 +44,7 @@ Implement a multi-page vanilla HTML/CSS/JS diet tracker with localStorage persis
     - **Property 17: Weight Log Chronological Order**
     - **Validates: Requirements 18.2, 18.3, 18.5**
 
-- [-] 3. Implement `js/utils.js` — shared utilities
+- [x] 3. Implement `js/utils.js` — shared utilities
   - [x] 3.1 Implement `utils.toKg(lbs)` and `utils.toCm(feet, inches)` unit converters
     - _Requirements: 1.2_
   - [x] 3.2 Implement `utils.computeGoal(profile)` using Mifflin-St Jeor BMR, activity multipliers, and goal adjustments (−500 / 0 / +300), rounded to nearest integer
@@ -52,20 +52,20 @@ Implement a multi-page vanilla HTML/CSS/JS diet tracker with localStorage persis
   - [ ]* 3.3 Write property test for calorie goal formula correctness
     - **Property 1: Calorie Goal Formula Correctness**
     - **Validates: Requirements 1.3, 4.3, 4.4, 4.5**
-  - [ ] 3.4 Implement `utils.progressRatio(consumed, goal)` returning a 0–∞ ratio
+  - [x] 3.4 Implement `utils.progressRatio(consumed, goal)` returning a 0–∞ ratio
     - _Requirements: 7.1_
-  - [ ] 3.5 Implement `utils.todayKey()` returning today's date as `'YYYY-MM-DD'`
+  - [x] 3.5 Implement `utils.todayKey()` returning today's date as `'YYYY-MM-DD'`
     - _Requirements: 14.3, 18.2_
-  - [ ] 3.6 Implement `utils.getTip(dayIndex)` with a hardcoded 14-entry tips array, selection via `tips[dayIndex % tips.length]`
+  - [x] 3.6 Implement `utils.getTip(dayIndex)` with a hardcoded 14-entry tips array, selection via `tips[dayIndex % tips.length]`
     - _Requirements: 12.2_
-  - [ ] 3.7 Implement `utils.defaultMeals(profile)` returning a 7-element array of `Meal[]` based on `dietaryPreference`, with calories scaled to the computed Daily_Goal; ensure vegetarian/vegan meals contain no non-compliant ingredients
+  - [x] 3.7 Implement `utils.defaultMeals(profile)` returning a 7-element array of `Meal[]` based on `dietaryPreference`, with calories scaled to the computed Daily_Goal; ensure vegetarian/vegan meals contain no non-compliant ingredients
     - _Requirements: 4.1_
   - [ ]* 3.8 Write property test for default meal suggestions respecting dietary preference
     - **Property 11: Default Meal Suggestions Respect Dietary Preference**
     - **Validates: Requirements 4.1**
-  - [ ] 3.9 Implement `utils.formatWeightChartSVG(entries, width, height)` returning an inline SVG `<path d="...">` string for the weight log line chart
+  - [x] 3.9 Implement `utils.formatWeightChartSVG(entries, width, height)` returning an inline SVG `<path d="...">` string for the weight log line chart
     - _Requirements: 18.4_
-  - [ ] 3.10 Implement `utils.planToText(plan, goalOverride)` serializing all 7 days with day name, Daily_Goal, and each meal's name, type, and calorie count as formatted plain text
+  - [x] 3.10 Implement `utils.planToText(plan, goalOverride)` serializing all 7 days with day name, Daily_Goal, and each meal's name, type, and calorie count as formatted plain text
     - _Requirements: 19.6_
   - [ ]* 3.11 Write property test for plan plain-text export completeness
     - **Property 19: Plan Plain-Text Export Contains All 7 Days and Meals**
@@ -74,20 +74,20 @@ Implement a multi-page vanilla HTML/CSS/JS diet tracker with localStorage persis
 - [ ] 4. Checkpoint — Ensure all store and utils tests pass
   - Ensure all tests pass, ask the user if questions arise.
 
-- [~] 5. Implement `index.html` + `js/onboarding.js` — Onboarding flow
-  - [ ] 5.1 Create `index.html` with the onboarding form: goal (radio cards), activity level (radio cards), sex (radio), age/weight/height inputs with unit toggles (kg/lbs, cm/ft+in), dietary preference (radio); no Nav bar on this page
+- [x] 5. Implement `index.html` + `js/onboarding.js` — Onboarding flow
+  - [x] 5.1 Create `index.html` with the onboarding form: goal (radio cards), activity level (radio cards), sex (radio), age/weight/height inputs with unit toggles (kg/lbs, cm/ft+in), dietary preference (radio); no Nav bar on this page
     - _Requirements: 1.1, 1.2, 5.1_
-  - [ ] 5.2 Implement redirect logic in `js/onboarding.js`: on load, if Profile exists in Store redirect immediately to `tracker.html`; otherwise show the form
+  - [x] 5.2 Implement redirect logic in `js/onboarding.js`: on load, if Profile exists in Store redirect immediately to `tracker.html`; otherwise show the form
     - _Requirements: 1.5_
-  - [ ] 5.3 Implement inline field validation on submit: check all required fields, display `.form-error` messages for missing/invalid fields, block submission until valid
+  - [x] 5.3 Implement inline field validation on submit: check all required fields, display `.form-error` messages for missing/invalid fields, block submission until valid
     - _Requirements: 1.6_
   - [ ]* 5.4 Write property test for invalid onboarding submission rejection
     - **Property 2: Invalid Onboarding Submission Rejected**
     - **Validates: Requirements 1.6**
-  - [ ] 5.5 On valid submit: call `utils.computeGoal(profile)`, call `utils.defaultMeals(profile)` to build the initial Plan, save Profile + Daily_Goal + Plan to Store, redirect to `tracker.html`
+  - [x] 5.5 On valid submit: call `utils.computeGoal(profile)`, call `utils.defaultMeals(profile)` to build the initial Plan, save Profile + Daily_Goal + Plan to Store, redirect to `tracker.html`
     - _Requirements: 1.3, 1.4, 4.1_
 
-- [~] 6. Implement shared Nav component and dark mode bootstrap
+- [-] 6. Implement shared Nav component and dark mode bootstrap
   - [ ] 6.1 Add the Nav HTML partial (with `.nav`, `.nav__link`, `data-page` attributes, and dark mode toggle button) to `tracker.html`, `progress.html`, and `settings.html`; omit from `index.html`
     - _Requirements: 8.1, 8.2, 8.6, 11.1_
   - [ ] 6.2 Implement Nav active-state logic in each page's JS: on load, add `.nav--active` to the link matching the current page filename
@@ -100,14 +100,14 @@ Implement a multi-page vanilla HTML/CSS/JS diet tracker with localStorage persis
   - [ ] 6.5 Implement dark mode bootstrap in a shared inline `<script>` block (or top of each page's JS): read `store.getTheme()` and apply `data-theme="dark"` to `<body>` before first paint; wire the toggle button to flip theme and persist via `store.setTheme()`
     - _Requirements: 11.2, 11.3, 11.4, 11.5_
 
-- [~] 7. Implement `tracker.html` + `js/tracker.js` — core daily tracking
-  - [ ] 7.1 Create `tracker.html` with day tabs (Mon–Sun), a `.day-grid` container, and the page header (streak badge placeholder, tip card placeholder)
+- [-] 7. Implement `tracker.html` + `js/tracker.js` — core daily tracking
+  - [x] 7.1 Create `tracker.html` with day tabs (Mon–Sun), a `.day-grid` container, and the page header (streak badge placeholder, tip card placeholder)
     - _Requirements: 5.1, 5.6_
-  - [ ] 7.2 Implement day tab switching in `js/tracker.js`: default to current day of week; on tab click show only the active day's column; apply `.day-tab--active`; update the motivational tip display
+  - [x] 7.2 Implement day tab switching in `js/tracker.js`: default to current day of week; on tab click show only the active day's column; apply `.day-tab--active`; update the motivational tip display
     - _Requirements: 12.1, 12.3_
-  - [ ] 7.3 Render each day's meal list from the Store: checkbox, name, type badge, calorie count, edit and delete controls; apply `.meal-item--completed` when checked
+  - [x] 7.3 Render each day's meal list from the Store: checkbox, name, type badge, calorie count, edit and delete controls; apply `.meal-item--completed` when checked
     - _Requirements: 2.1, 3.1, 3.3_
-  - [ ] 7.4 Implement meal checkbox toggle: update `meal.completed` in Store, recalculate consumed calories, update progress bar width and color state, update Calories_Remaining display
+  - [x] 7.4 Implement meal checkbox toggle: update `meal.completed` in Store, recalculate consumed calories, update progress bar width and color state, update Calories_Remaining display
     - _Requirements: 3.2, 3.5, 3.6, 9.1, 9.2_
   - [ ]* 7.5 Write property test for consumed calories invariant
     - **Property 4: Consumed Calories Invariant**

@@ -1,5 +1,5 @@
 /**
- * js/tracker.js — Daily tracking page for 7 Day Diet Tracker
+ * js/tracker.js — Daily tracking page for Nutrify
  */
 
 // ── State ─────────────────────────────────────────────────

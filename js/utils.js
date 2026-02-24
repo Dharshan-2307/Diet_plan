@@ -1,5 +1,5 @@
 /**
- * js/utils.js — Shared utilities for 7 Day Diet Tracker
+ * js/utils.js — Shared utilities for Nutrify
  */
 
 const utils = {
@@ -225,7 +225,7 @@ const utils = {
     if (!plan || !plan.days) return '';
 
     const dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-    const lines = ['7-Day Diet Plan', '═'.repeat(40), ''];
+    const lines = ['Nutrify — 7-Day Diet Plan', '═'.repeat(40), ''];
 
     plan.days.forEach((day, i) => {
       const dayGoal = goalOverride || day.dailyGoal || '—';

@@ -1,6 +1,6 @@
-# 7 Day Diet Tracker
+# Nutrify
 
-A personal diet tracker for anyone looking to eat better. Tracks a personalised 7-day meal plan with calorie goals, meal check-offs, and weekly progress — all in the browser with no backend, no framework, and no build step.
+Nutrify is a personal diet tracker for anyone looking to eat better. Tracks a personalised 7-day meal plan with calorie goals, meal check-offs, and weekly progress — all in the browser with no backend, no framework, and no build step.
 
 ## Pages
 

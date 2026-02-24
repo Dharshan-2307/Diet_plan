@@ -1,5 +1,5 @@
 /**
- * js/store.js — localStorage data layer for 7 Day Diet Tracker
+ * js/store.js — localStorage data layer for Nutrify
  * All app state is read/written exclusively through this module.
  */
 

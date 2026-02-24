@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This spec covers a full redesign and enhancement of the existing 7 Day Diet Tracker — a vanilla HTML/CSS/JS web app. The goal is to transform it from a hardcoded, mobile-only meal plan into a fully customizable, responsive diet tracker that works equally well on mobile and desktop. The app remains frontend-only (no backend, no build tools) with localStorage for persistence.
+This spec covers a full redesign and enhancement of the existing Nutrify app — a vanilla HTML/CSS/JS web app. The goal is to transform it from a hardcoded, mobile-only meal plan into a fully customizable, responsive diet tracker that works equally well on mobile and desktop. The app remains frontend-only (no backend, no build tools) with localStorage for persistence.
 
 The app is structured as multiple dedicated HTML pages, each with a focused purpose, connected by standard anchor-link navigation. Shared logic lives in `js/store.js` and `js/utils.js`; each page has its own JS file. One shared `style.css` covers all pages.
 
@@ -10,7 +10,7 @@ Key additions include: a user onboarding flow that collects profile data and gen
 
 ## Glossary
 
-- **App**: The 7 Day Diet Tracker multi-page web application
+- **App**: Nutrify — a multi-page web application
 - **User**: The person using the App in a browser
 - **Profile**: The User's personal data collected during onboarding (goal, activity level, age, weight, height, dietary preference)
 - **Plan**: The single 7-day diet plan containing days and meals
