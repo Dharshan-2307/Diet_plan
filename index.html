@@ -32,7 +32,7 @@
     .hero__overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.8) 100%);
+      background: linear-gradient(180deg, rgba(20,10,0,0.55) 0%, rgba(20,10,0,0.75) 100%);
       z-index: 1;
     }
 
@@ -100,40 +100,30 @@
     .hero__btn:hover { transform: translateY(-2px); }
 
     .hero__btn--primary {
-      background: var(--color-primary);
+      background: transparent;
       color: #fff;
-      box-shadow: 0 4px 20px rgba(34,197,94,0.4);
+      border: 2px solid rgba(255,255,255,0.8);
     }
 
-    .hero__btn--ghost {
+    .hero__btn--primary:hover {
       background: rgba(255,255,255,0.1);
+    }
+
+    .hero__btn--link {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.8);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      padding: 14px 32px;
+      font-size: var(--font-size-base);
+      font-weight: 500;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .hero__btn--link:hover {
       color: #fff;
-      border: 1px solid rgba(255,255,255,0.25);
-      backdrop-filter: blur(4px);
-    }
-
-    .hero__stats {
-      display: flex;
-      gap: var(--space-xl);
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .hero__stat {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2px;
-    }
-
-    .hero__stat-num {
-      font-size: var(--font-size-xl);
-      font-weight: 700;
-    }
-
-    .hero__stat-label {
-      font-size: var(--font-size-sm);
-      color: rgba(255,255,255,0.6);
     }
 
     .hero__scroll-hint {
@@ -283,13 +273,8 @@
       <p class="hero__desc">Nutrify builds you a personalised 7-day meal plan, tracks your calories, water intake, and streaks — all in your browser, no sign-up needed.</p>
       <div class="hero__actions">
         <a href="#onboarding" class="hero__btn hero__btn--primary">Get Started Free</a>
-        <a href="tracker.html" class="hero__btn hero__btn--ghost">Open Tracker →</a>
       </div>
-      <div class="hero__stats">
-        <div class="hero__stat"><span class="hero__stat-num">7</span><span class="hero__stat-label">Day Plans</span></div>
-        <div class="hero__stat"><span class="hero__stat-num">300+</span><span class="hero__stat-label">Food Database</span></div>
-        <div class="hero__stat"><span class="hero__stat-num">100%</span><span class="hero__stat-label">Free & Private</span></div>
-      </div>
+      <a href="tracker.html" class="hero__btn--link">Open Tracker →</a>
     </div>
     <div class="hero__scroll-hint" onclick="document.getElementById('onboarding').scrollIntoView({behavior:'smooth'})">
       <span>↓</span>
