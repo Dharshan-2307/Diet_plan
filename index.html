@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7-Day Diet Tracker — Setup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .onboarding-wrap {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-lg);
+      background: var(--color-bg);
+    }
+    .onboarding-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      width: 100%;
+      max-width: 560px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+    .onboarding-logo {
+      text-align: center;
+      margin-bottom: var(--space-lg);
+    }
+    .onboarding-logo h1 {
+      font-size: var(--font-size-xl);
+      font-weight: 700;
+      color: var(--color-primary);
+      margin: 0;
+    }
+    .onboarding-logo p {
+      color: var(--color-text-muted);
+      font-size: var(--font-size-sm);
+      margin: var(--space-xs) 0 0;
+    }
+    .section-title {
+      font-size: var(--font-size-base);
+      font-weight: 600;
+      color: var(--color-text);
+      margin: var(--space-lg) 0 var(--space-sm);
+    }
+    .radio-cards {
+      display: grid;
+      gap: var(--space-sm);
+    }
+    .radio-cards--3 { grid-template-columns: repeat(3, 1fr); }
+    .radio-cards--2 { grid-template-columns: repeat(2, 1fr); }
+    .radio-card input[type="radio"] { display: none; }
+    .radio-card label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      padding: var(--space-sm) var(--space-xs);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      text-align: center;
+      font-size: var(--font-size-sm);
+      color: var(--color-text);
+      transition: border-color 0.15s, background 0.15s;
+      min-height: 44px;
+    }
+    .radio-card label .icon { font-size: 1.4rem; }
+    .radio-card input[type="radio"]:checked + label {
+      border-color: var(--color-primary);
+      background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+    .radio-inline {
+      display: flex;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+    .radio-inline label {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      cursor: pointer;
+      font-size: var(--font-size-base);
+      min-height: 44px;
+    }
+    .unit-toggle {
+      display: flex;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-sm);
+    }
+    .unit-toggle button {
+      padding: var(--space-xs) var(--space-sm);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      background: transparent;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      font-size: var(--font-size-sm);
+      min-height: 36px;
+    }
+    .unit-toggle button.active {
+      background: var(--color-primary);
+      color: #fff;
+      border-color: var(--color-primary);
+    }
+    .height-inputs { display: flex; gap: var(--space-sm); }
+    .height-inputs .form-group { flex: 1; }
+    .submit-wrap { margin-top: var(--space-xl); }
+    .submit-wrap .btn { width: 100%; justify-content: center; font-size: var(--font-size-lg); padding: var(--space-md); }
+  </style>
+</head>
+<body>
+  <!-- Dark mode bootstrap -->
+  <script>
+    (function() {
+      try {
+        const t = JSON.parse(localStorage.getItem('ddt_theme'));
+        if (t === 'dark') document.body.setAttribute('data-theme', 'dark');
+      } catch(e) {}
+    })();
+  </script>
+
+  <div class="onboarding-wrap">
+    <div class="onboarding-card">
+      <div class="onboarding-logo">
+        <h1>🥗 Diet Tracker</h1>
+        <p>Set up your personalised 7-day plan</p>
+      </div>
+
+      <form id="onboarding-form" novalidate>
+
+        <!-- Goal -->
+        <p class="section-title">What's your goal?</p>
+        <div class="radio-cards radio-cards--3" id="goal-cards">
+          <div class="radio-card">
+            <input type="radio" name="goal" id="goal-lose" value="lose_weight" />
+            <label for="goal-lose"><span class="icon">🔥</span>Lose Weight</label>
+          </div>
+          <div class="radio-card">
+            <input type="radio" name="goal" id="goal-maintain" value="maintain" />
+            <label for="goal-maintain"><span class="icon">⚖️</span>Maintain</label>
+          </div>
+          <div class="radio-card">
+            <input type="radio" name="goal" id="goal-gain" value="gain_muscle" />
+            <label for="goal-gain"><span class="icon">💪</span>Gain Muscle</label>
+          </div>
+        </div>
+        <span class="form-error" id="err-goal"></span>
+
+        <!-- Activity Level -->
+        <p class="section-title">Activity level</p>
+        <div class="radio-cards radio-cards--2" id="activity-cards">
+          <div class="radio-card">
+            <input type="radio" name="activityLevel" id="act-sed" value="sedentary" />
+            <label for="act-sed"><span class="icon">🪑</span>Sedentary</label>
+          </div>
+          <div class="radio-card">
+            <input type="radio" name="activityLevel" id="act-light" value="lightly_active" />
+            <label for="act-light"><span class="icon">🚶</span>Lightly Active</label>
+          </div>
+          <div class="radio-card">
+            <input type="radio" name="activityLevel" id="act-mod" value="moderately_active" />
+            <label for="act-mod"><span class="icon">🏃</span>Moderately Active</label>
+          </div>
+          <div class="radio-card">
+            <input type="radio" name="activityLevel" id="act-very" value="very_active" />
+            <label for="act-very"><span class="icon">🏋️</span>Very Active</label>
+          </div>
+        </div>
+        <span class="form-error" id="err-activity"></span>
+
+        <!-- Sex -->
+        <p class="section-title">Sex</p>
+        <div class="radio-inline">
+          <label><input type="radio" name="sex" value="male" /> Male</label>
+          <label><input type="radio" name="sex" value="female" /> Female</label>
+        </div>
+        <span class="form-error" id="err-sex"></span>
+
+        <!-- Age -->
+        <div class="form-group" style="margin-top: var(--space-lg);">
+          <label for="age">Age (years)</label>
+          <input type="number" id="age" name="age" min="10" max="100" placeholder="e.g. 21" />
+          <span class="form-error" id="err-age"></span>
+        </div>
+
+        <!-- Weight -->
+        <div class="form-group">
+          <label>Weight</label>
+          <div class="unit-toggle">
+            <button type="button" id="wt-kg" class="active" onclick="setWeightUnit('kg')">kg</button>
+            <button type="button" id="wt-lbs" onclick="setWeightUnit('lbs')">lbs</button>
+          </div>
+          <input type="number" id="weight" name="weight" min="1" step="0.1" placeholder="e.g. 65" />
+          <span class="form-error" id="err-weight"></span>
+        </div>
+
+        <!-- Height -->
+        <div class="form-group">
+          <label>Height</label>
+          <div class="unit-toggle">
+            <button type="button" id="ht-cm" class="active" onclick="setHeightUnit('cm')">cm</button>
+            <button type="button" id="ht-ft" onclick="setHeightUnit('ft')">ft + in</button>
+          </div>
+          <div id="height-cm-wrap">
+            <input type="number" id="height-cm" min="100" max="250" step="0.1" placeholder="e.g. 170" />
+          </div>
+          <div id="height-ft-wrap" style="display:none;" class="height-inputs">
+            <div class="form-group">
+              <label for="height-ft">Feet</label>
+              <input type="number" id="height-ft" min="3" max="8" placeholder="5" />
+            </div>
+            <div class="form-group">
+              <label for="height-in">Inches</label>
+              <input type="number" id="height-in" min="0" max="11" placeholder="7" />
+            </div>
+          </div>
+          <span class="form-error" id="err-height"></span>
+        </div>
+
+        <!-- Dietary Preference -->
+        <p class="section-title">Dietary preference</p>
+        <div class="radio-cards radio-cards--3">
+          <div class="radio-card">
+            <input type="radio" name="dietaryPreference" id="diet-none" value="none" />
+            <label for="diet-none"><span class="icon">🍗</span>No Restriction</label>
+          </div>
+          <div class="radio-card">
+            <input type="radio" name="dietaryPreference" id="diet-veg" value="vegetarian" />
+            <label for="diet-veg"><span class="icon">🥦</span>Vegetarian</label>
+          </div>
+          <div class="radio-card">
+            <input type="radio" name="dietaryPreference" id="diet-vegan" value="vegan" />
+            <label for="diet-vegan"><span class="icon">🌱</span>Vegan</label>
+          </div>
+        </div>
+        <span class="form-error" id="err-diet"></span>
+
+        <div class="submit-wrap">
+          <button type="submit" class="btn btn--primary">Get Started →</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <script src="js/store.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/onboarding.js"></script>
+</body>
+</html>
