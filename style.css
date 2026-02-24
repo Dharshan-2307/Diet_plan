@@ -543,3 +543,52 @@ main { padding-bottom: calc(var(--nav-height-mobile) + var(--space-md)); }
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
 }
+
+/* ============================================================
+   Progress Page
+   ============================================================ */
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.summary-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.summary-stat__value {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.summary-stat__label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.breakdown-row {
+  margin-bottom: var(--space-md);
+}
+
+.breakdown-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-xs);
+}
+
+.breakdown-kcal {
+  font-weight: 500;
+}
+
+.breakdown-pct {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  display: block;
+  text-align: right;
+  margin-top: 2px;
+}

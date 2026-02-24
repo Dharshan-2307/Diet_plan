@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nutrify — Progress</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-progress">
+  <script>
+    (function() {
+      try {
+        const t = JSON.parse(localStorage.getItem('ddt_theme'));
+        if (t === 'dark') document.body.setAttribute('data-theme', 'dark');
+      } catch(e) {}
+    })();
+  </script>
+
+  <!-- Top Nav (desktop) -->
+  <nav class="nav nav--top no-print" aria-label="Main navigation">
+    <div class="nav__brand">🥗 Nutrify</div>
+    <div class="nav__links">
+      <a href="tracker.html" class="nav__link" data-page="tracker">
+        <span class="nav__icon" aria-hidden="true">📋</span>
+        <span class="nav__label">Tracker</span>
+      </a>
+      <a href="progress.html" class="nav__link" data-page="progress">
+        <span class="nav__icon" aria-hidden="true">📊</span>
+        <span class="nav__label">Progress</span>
+      </a>
+      <a href="settings.html" class="nav__link" data-page="settings">
+        <span class="nav__icon" aria-hidden="true">⚙️</span>
+        <span class="nav__label">Settings</span>
+      </a>
+    </div>
+    <button class="btn btn--ghost nav__theme-toggle no-print" id="theme-toggle-top" aria-label="Toggle dark mode">🌙</button>
+  </nav>
+
+  <main class="main-content">
+    <div class="container">
+
+      <!-- Weekly Summary Card -->
+      <div class="card" style="margin-bottom: var(--space-md);">
+        <h2 style="margin:0 0 var(--space-md);">Weekly Summary</h2>
+        <div class="summary-grid" id="summary-grid">
+          <!-- Rendered by progress.js -->
+        </div>
+      </div>
+
+      <!-- Per-Day Progress Bars -->
+      <div class="card" style="margin-bottom: var(--space-md);">
+        <h2 style="margin:0 0 var(--space-md);">Daily Breakdown</h2>
+        <div id="daily-breakdown">
+          <!-- Rendered by progress.js -->
+        </div>
+      </div>
+
+      <!-- Weight Log -->
+      <div class="card" style="margin-bottom: var(--space-md);">
+        <h2 style="margin:0 0 var(--space-md);">Body Weight Log</h2>
+        <div class="form-group">
+          <label for="weight-input">Log today's weight (kg)</label>
+          <input type="number" id="weight-input" min="20" max="300" step="0.1" placeholder="e.g. 72.5" />
+          <span class="form-error" id="weight-err"></span>
+        </div>
+        <button class="btn btn--primary no-print" id="log-weight-btn" style="width:100%;">Log Weight</button>
+        <div class="weight-chart" id="weight-chart" style="margin-top:var(--space-md);">
+          <!-- SVG rendered by progress.js -->
+        </div>
+      </div>
+
+      <!-- Export -->
+      <button class="btn btn--ghost no-print" id="export-btn" style="width:100%;margin-bottom:var(--space-md);">⬇️ Print / Export Summary</button>
+
+    </div>
+  </main>
+
+  <!-- Bottom Nav (mobile) -->
+  <nav class="nav nav--bottom no-print" aria-label="Main navigation">
+    <a href="tracker.html" class="nav__link" data-page="tracker">
+      <span class="nav__icon" aria-hidden="true">📋</span>
+      <span class="nav__label">Tracker</span>
+    </a>
+    <a href="progress.html" class="nav__link" data-page="progress">
+      <span class="nav__icon" aria-hidden="true">📊</span>
+      <span class="nav__label">Progress</span>
+    </a>
+    <a href="settings.html" class="nav__link" data-page="settings">
+      <span class="nav__icon" aria-hidden="true">⚙️</span>
+      <span class="nav__label">Settings</span>
+    </a>
+    <button class="btn btn--ghost nav__theme-toggle" id="theme-toggle-bottom" aria-label="Toggle dark mode">🌙</button>
+  </nav>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/store.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/progress.js"></script>
+</body>
+</html>
