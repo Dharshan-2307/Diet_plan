@@ -213,7 +213,7 @@ function renderMealItem(meal, dayIdx) {
       <span class="meal-calories">${meal.calories} kcal</span>
       <div class="meal-actions no-print">
         <button class="btn btn--ghost edit-meal-btn" data-meal-id="${meal.id}" data-day="${dayIdx}" aria-label="Edit meal">✏️</button>
-        <button class="btn btn--danger delete-meal-btn" data-meal-id="${meal.id}" data-day="${dayIdx}" aria-label="Delete meal">×</button>
+        <button class="btn btn--ghost delete-meal-btn" data-meal-id="${meal.id}" data-day="${dayIdx}" aria-label="Delete meal">✕</button>
       </div>
       <div class="meal-note-wrap">
         <details>
