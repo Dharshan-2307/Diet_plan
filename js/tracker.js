@@ -243,9 +243,13 @@ function renderMealForm(dayIdx, meal) {
       <select class="meal-form-type">${opts}<option value="custom">Custom…</option></select>
     </div>
     <div class="form-group">
-      <label>Calories</label>
+      <label>Calories <button type="button" class="btn btn--ghost btn--sm estimator-toggle-btn" title="Search food to estimate calories">🔍 Estimate</button></label>
       <input type="number" class="meal-form-cal" min="1" max="9999" placeholder="e.g. 350" value="${cal}" />
       <span class="form-error meal-form-err-cal"></span>
+    </div>
+    <div class="estimator-panel" style="display:none;">
+      <input type="text" class="estimator-search" placeholder="Search food (e.g. chicken curry, banana…)" autocomplete="off" />
+      <ul class="estimator-results"></ul>
     </div>
     <div class="form-row">
       <button class="btn btn--primary meal-form-save" data-day="${dayIdx}">Save</button>
@@ -303,6 +307,49 @@ function wireColumnEvents() {
   // Download PDF buttons
   document.querySelectorAll('.download-pdf-btn').forEach(btn => {
     btn.addEventListener('click', onDownloadPDF);
+  });
+
+  // Calorie estimator
+  document.querySelectorAll('.estimator-toggle-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+      const panel = this.closest('.form-group').nextElementSibling;
+      if (!panel || !panel.classList.contains('estimator-panel')) return;
+      const isOpen = panel.style.display !== 'none';
+      panel.style.display = isOpen ? 'none' : '';
+      if (!isOpen) panel.querySelector('.estimator-search').focus();
+    });
+  });
+
+  document.querySelectorAll('.estimator-search').forEach(input => {
+    input.addEventListener('input', function () {
+      const results = this.nextElementSibling;
+      const query = this.value.trim();
+      if (!query) { results.innerHTML = ''; return; }
+      const matches = searchFood(query);
+      if (!matches.length) {
+        results.innerHTML = '<li class="estimator-no-result">No matches found</li>';
+        return;
+      }
+      results.innerHTML = matches.map(f =>
+        `<li class="estimator-result-item" data-calories="${f.calories}" data-name="${f.name.replace(/"/g, '&quot;')}">${f.name} <span class="estimator-kcal">${f.calories} kcal</span></li>`
+      ).join('');
+    });
+  });
+
+  document.querySelectorAll('.estimator-results').forEach(ul => {
+    ul.addEventListener('click', function (e) {
+      const item = e.target.closest('.estimator-result-item');
+      if (!item) return;
+      const wrap = this.closest('.meal-form-wrap');
+      if (!wrap) return;
+      const calInput  = wrap.querySelector('.meal-form-cal');
+      const nameInput = wrap.querySelector('.meal-form-name');
+      if (calInput) calInput.value = item.dataset.calories;
+      if (nameInput && !nameInput.value.trim()) nameInput.value = item.dataset.name;
+      // Close panel
+      const panel = this.closest('.estimator-panel');
+      if (panel) panel.style.display = 'none';
+    });
   });
 }
 
