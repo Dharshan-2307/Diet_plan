@@ -494,6 +494,10 @@ main { padding-bottom: calc(var(--nav-height-mobile) + var(--space-md)); }
 
   main { padding-bottom: var(--space-xl); }
 
+  .day-tabs { display: none; } /* hide day tabs on desktop — all columns visible */
+
+  .day-column--hidden { display: block !important; } /* override mobile hide */
+
   .day-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);

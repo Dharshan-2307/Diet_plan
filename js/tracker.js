@@ -134,7 +134,7 @@ function renderDayGrid() {
     const col = document.createElement('div');
     col.className = 'day-column';
     col.dataset.dayIndex = i;
-    if (i !== activeDayIndex) col.style.display = 'none'; // hidden on mobile; shown on desktop via CSS
+    if (i !== activeDayIndex) col.classList.add('day-column--hidden'); // hidden on mobile; shown on desktop via CSS
 
     col.innerHTML = renderDayColumn(day, i, dayNames[i]);
     grid.appendChild(col);
