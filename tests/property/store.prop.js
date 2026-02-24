@@ -127,7 +127,7 @@ const planArb = fc.record({
   updatedAt: fc.date().map(d => d.toISOString()),
 }).map(p => jsonNormalize({ ...p, days: Array.from(p.days) }));
 
-const dateStrArb = fc.date({ min: new Date('2020-01-01'), max: new Date('2030-12-31') })
+const dateStrArb = fc.date({ min: new Date('2020-01-01T00:00:00.000Z'), max: new Date('2030-12-31T00:00:00.000Z'), noInvalidDate: true })
   .map(d => d.toISOString().slice(0, 10));
 
 const weightEntryArb = fc.record({
