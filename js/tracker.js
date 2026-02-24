@@ -10,13 +10,12 @@ let editingMealId = null; // null = adding new meal
 
 // ── Init ──────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function () {
-  // Redirect to onboarding if no profile
+  // Load profile (may be null if user hasn't onboarded yet)
   profile = store.getProfile();
-  if (!profile) { window.location.href = 'index.html'; return; }
 
-  // Load or init plan
+  // Load or init plan (only if profile exists)
   plan = store.getPlan();
-  if (!plan) {
+  if (!plan && profile) {
     const mealArrays = utils.defaultMeals(profile);
     plan = {
       days: mealArrays.map((meals, i) => ({ dayIndex: i, meals })),
@@ -24,6 +23,9 @@ document.addEventListener('DOMContentLoaded', function () {
       updatedAt: new Date().toISOString(),
     };
     store.setPlan(plan);
+  }
+  if (!plan) {
+    plan = { days: [0,1,2,3,4,5,6].map(i => ({ dayIndex: i, meals: [] })), createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() };
   }
 
   // Default to today's day of week (0=Mon … 6=Sun); JS getDay() 0=Sun
@@ -145,7 +147,7 @@ function renderDayGrid() {
 }
 
 function renderDayColumn(day, dayIdx, dayName) {
-  const goal = store.getGoalOverride() || utils.computeGoal(profile);
+  const goal = store.getGoalOverride() || (profile ? utils.computeGoal(profile) : 2000);
   const consumed = day.meals.filter(m => m.completed).reduce((s, m) => s + m.calories, 0);
   const remaining = goal - consumed;
   const ratio = Math.min(utils.progressRatio(consumed, goal), 1);
