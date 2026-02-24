@@ -24,21 +24,21 @@ Implement a multi-page vanilla HTML/CSS/JS nutrition tracker with localStorage p
   - [ ]* 2.3 Write property test for corrupted store data
     - **Property 7: Corrupted Store Data Returns Safe Default**
     - **Validates: Requirements 6.5**
-  - [ ] 2.4 Implement convenience accessors: `getProfile/setProfile`, `getPlan/setPlan`, `getGoalOverride/setGoalOverride`, `clearAll`
+  - [x] 2.4 Implement convenience accessors: `getProfile/setProfile`, `getPlan/setPlan`, `getGoalOverride/setGoalOverride`, `clearAll`
     - _Requirements: 6.1_
-  - [ ] 2.5 Implement theme accessors: `getTheme/setTheme` (key `ddt_theme`, default `'light'`)
+  - [x] 2.5 Implement theme accessors: `getTheme/setTheme` (key `ddt_theme`, default `'light'`)
     - _Requirements: 11.4_
   - [ ]* 2.6 Write property test for dark mode persistence
     - **Property 14: Dark Mode Preference Persists Across Page Loads**
     - **Validates: Requirements 11.4, 11.5**
-  - [ ] 2.7 Implement streak accessors: `getStreak/setStreak` (key `ddt_streak`, default `{ count: 0, lastCompletedDate: null }`)
+  - [x] 2.7 Implement streak accessors: `getStreak/setStreak` (key `ddt_streak`, default `{ count: 0, lastCompletedDate: null }`)
     - _Requirements: 13.5_
-  - [ ] 2.8 Implement water log accessors: `getWater(date)/setWater(date, count)` (key `ddt_water_YYYY-MM-DD`, default `0`)
+  - [x] 2.8 Implement water log accessors: `getWater(date)/setWater(date, count)` (key `ddt_water_YYYY-MM-DD`, default `0`)
     - _Requirements: 14.3, 14.5_
   - [ ] 2.9 Write property test for water log date independence
     - **Property 16: Water Log Resets on New Day**
     - **Validates: Requirements 14.3, 14.4**
-  - [ ] 2.10 Implement weight log accessors: `getWeightLog/appendWeight` (key `ddt_weight_log`, upsert by date, maintain chronological order)
+  - [x] 2.10 Implement weight log accessors: `getWeightLog/appendWeight` (key `ddt_weight_log`, upsert by date, maintain chronological order)
     - _Requirements: 18.2, 18.3, 18.5_
   - [ ]* 2.11 Write property test for weight log chronological order and upsert
     - **Property 17: Weight Log Chronological Order**
@@ -202,7 +202,7 @@ Implement a multi-page vanilla HTML/CSS/JS nutrition tracker with localStorage p
   - [x] 15.5 If no Profile exists on load, render a prompt with a link to `index.html` instead of the settings form
     - _Requirements: 5.1_
 
-- [-] 16. Add responsive desktop layout for `tracker.html`
+- [x] 16. Add responsive desktop layout for `tracker.html`
   - Add `@media (min-width: 768px)` CSS for `.day-grid` as a 7-column grid (`repeat(7, 1fr)`); show all days simultaneously on desktop; hide day tabs on desktop (all columns visible); ensure top nav is shown and bottom nav is hidden
   - _Requirements: 5.6, 8.4, 8.5_
 
