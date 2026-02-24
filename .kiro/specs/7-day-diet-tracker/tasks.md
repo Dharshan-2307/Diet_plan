@@ -71,8 +71,8 @@ Implement a multi-page vanilla HTML/CSS/JS nutrition tracker with localStorage p
     - **Property 19: Plan Plain-Text Export Contains All 7 Days and Meals**
     - **Validates: Requirements 19.6**
 
-- [ ] 4. Checkpoint — Ensure all store and utils tests pass
-  - Ensure all tests pass, ask the user if questions arise.
+- [x] 4. Checkpoint — Ensure all store and utils tests pass
+  - All 5 property tests pass (Properties 6, 7, 14, 16, 17).
 
 - [x] 5. Implement `index.html` + `js/onboarding.js` — Onboarding flow
   - [x] 5.1 Create `index.html` with the onboarding form: goal (radio cards), activity level (radio cards), sex (radio), age/weight/height inputs with unit toggles (kg/lbs, cm/ft+in), dietary preference (radio); no Nav bar on this page
@@ -165,8 +165,8 @@ Implement a multi-page vanilla HTML/CSS/JS nutrition tracker with localStorage p
   - [x] 12.2 Add `body.page-tracker @media print` block in `style.css`: hide Nav, day tabs, checkboxes, edit/delete controls, water tracker, streak badge, and all interactive elements; render all 7 days stacked with day name, Daily_Goal, and each meal's name, type, and calorie count
     - _Requirements: 19.3, 19.4, 19.5_
 
-- [ ] 13. Checkpoint — Ensure tracker page tests pass and all tracker features work
-  - Ensure all tests pass, ask the user if questions arise.
+- [x] 13. Checkpoint — Ensure tracker page tests pass and all tracker features work
+  - All tracker features verified: meal CRUD, checkboxes, progress bar, water tracker, streaks, tips, notes, PDF export, calorie estimator.
 
 - [x] 14. Implement `progress.html` + `js/progress.js` — weekly progress
   - [x] 14.1 Create `progress.html` with weekly summary card (total consumed, total planned, days completed count) and per-day progress bars with percentage labels; read all data from Store on page load
