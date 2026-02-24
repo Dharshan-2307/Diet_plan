@@ -292,6 +292,9 @@ body {
   color: #fff;
 }
 
+/* Hide non-active day columns on mobile */
+.day-column--hidden { display: none; }
+
 /* ============================================================
    Calories Remaining
    ============================================================ */
