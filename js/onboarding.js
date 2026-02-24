@@ -115,9 +115,4 @@ document.getElementById('onboarding-form').addEventListener('submit', function(e
   window.location.href = 'tracker.html';
 });
 
-// ── On load: redirect if profile already exists ───────────
-(function() {
-  if (store.getProfile()) {
-    window.location.href = 'tracker.html';
-  }
-})();
+// No auto-redirect — user can freely navigate to any page.
