@@ -1,0 +1,25 @@
+{
+  "name": "diet_plan",
+  "version": "1.0.0",
+  "description": "A personal diet tracker for a university student. Tracks a fixed 7-day meal plan with calorie goals, meal check-offs, and weekly progress — all in the browser with no backend, no framework, and no build step.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node tests/property/store.prop.js",
+    "test:store": "node tests/property/store.prop.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dharshan-2307/Diet_plan.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dharshan-2307/Diet_plan/issues"
+  },
+  "homepage": "https://github.com/Dharshan-2307/Diet_plan#readme",
+  "devDependencies": {
+    "fast-check": "^4.5.3"
+  }
+}
